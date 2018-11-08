@@ -10,13 +10,13 @@ public class CameraBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-		offset = transform.position - player.transform.position;
+		if(player != null)
+			offset = transform.position - player.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-		transform.position = player.transform.position + offset;
+		if(player != null)
+			transform.position = player.transform.position + offset;
 	}
 }

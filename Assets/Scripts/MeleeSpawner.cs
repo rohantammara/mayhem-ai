@@ -13,7 +13,10 @@ public class MeleeSpawner : MonoBehaviour {
 		}
 	}
 	
-	void Update () {
-		
+	void FixedUpdate () {
+
+		if(GameObject.FindGameObjectsWithTag("Melee").Length < 3 || Time.time % 10.0f == 0){
+			Instantiate(meleePrefab, new Vector3(Random.Range(-7.25f, 7.25f), Random.Range(-2.75f, 2.75f), 0), Quaternion.identity);
+		}
 	}
 }

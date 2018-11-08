@@ -16,39 +16,47 @@ public class PlayerBehavior : MonoBehaviour {
 	}
 
 	void Update(){
-		if(hitPoints == 0.0f){
+
+		if(isDead == false && hitPoints == 0.0f){
 			isDead = true;
+			Destroy(gameObject);
 		}
 	}
 
 	void FixedUpdate(){
 	
 		if(isDead == false){
-			move(player);
+			movePlayer(player);
 		}
 
 	}
 
-	void onCollisionEnter2D(Collision2D col){
+	void OnCollisionEnter2D(Collision2D col){
 		if(col.gameObject.tag == "Melee"){
 			Destroy(col.gameObject);
-			hitPoints -= 5.0f;
+			hitPoints -= 25.0f;
 		}
 	}
 
-	void move(Rigidbody2D player){
+	void movePlayer(Rigidbody2D player){
+		
+		Vector2 inDir = new Vector2(0, 0);
+		
 		if(Input.GetKey(KeyCode.W)){
-			player.AddForce(player.transform.up * thrust);
+			inDir = player.transform.up * thrust;
 		}
 		if(Input.GetKey(KeyCode.A)){
-			player.AddForce(-player.transform.right * thrust);
+			inDir = -player.transform.right * thrust;
 		}
 		if(Input.GetKey(KeyCode.S)){
-			player.AddForce(-player.transform.up * thrust);
+			inDir = -player.transform.up * thrust;
 		}
 		if(Input.GetKey(KeyCode.D)){
-			player.AddForce(player.transform.right * thrust);
+			inDir = player.transform.right * thrust;
 		}
+
+		player.AddForce(inDir);
+		player.MoveRotation(player.rotation + Vector2.SignedAngle(Vector2.up, player.velocity));
 	}
 
 }

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class TurretBehavior : MonoBehaviour {
 
-	private Rigidbody2D turret;
 	Camera camera;
 
-	// Use this for initialization
+	private Rigidbody2D turret;
+
+	public Transform bulletPrefab;
+
 	void Start () {
 		turret = GetComponent<Rigidbody2D>();
 		camera = Camera.main;
@@ -16,12 +18,11 @@ public class TurretBehavior : MonoBehaviour {
 	
 	void Update(){
 		turret.transform.eulerAngles = new Vector3(0, 0, getCursorDir());
-		if(Input.GetMouseButton(0)){
-			// Shoot bullets and shit.
+		if(Input.GetMouseButtonDown(0)){
+			Instantiate(bulletPrefab, turret.transform.position + turret.transform.up*0.75f, turret.transform.rotation);
 		}
 	}
 
-	// Change this to follow cursor direction instead
 	void FixedUpdate () {
 	}
 
