@@ -6,7 +6,7 @@ public class BulletBehavior : MonoBehaviour {
 
 	private Rigidbody2D bullet;
 
-	public float thrust = 100.0f;
+	public float thrust = 0.008f;
 
 	void Start () {
 

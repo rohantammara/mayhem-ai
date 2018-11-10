@@ -23,9 +23,6 @@ public class TurretBehavior : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate () {
-	}
-
 	float getCursorDir(){
 		Vector3 cursorPos = camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, camera.nearClipPlane));
 		float cursorDir = Vector2.SignedAngle(Vector2.up, new Vector2(cursorPos.x, cursorPos.y) - new Vector2(turret.position.x, turret.position.y));
