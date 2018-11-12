@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,6 +37,7 @@ public class PlayerBehavior : MonoBehaviour {
 			hitPoints -= 25.0f;
 		}
 	}
+
 
 	void movePlayer(Rigidbody2D player){
 		
