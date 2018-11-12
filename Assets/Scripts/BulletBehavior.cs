@@ -19,7 +19,7 @@ public class BulletBehavior : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if(col.gameObject.tag != "Bullet")
+		if(col.gameObject.tag != "Bullet" && col.gameObject.tag != "Player")
 			Destroy(gameObject);
 	}
 }

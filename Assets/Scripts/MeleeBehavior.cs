@@ -8,7 +8,7 @@ public class MeleeBehavior : MonoBehaviour {
 	private GameObject player;
 	private float hitPoints = 100.0f;
 	
-	public float speedInverse = 4.5f;
+	public float speed = 4.5f;
 
 	void Start () {
 		
@@ -41,25 +41,32 @@ public class MeleeBehavior : MonoBehaviour {
 		bot.transform.eulerAngles = new Vector3(0, 0, rotateBy);
 
 		Vector2 direction = getAStarDir();
-		bot.MovePosition(bot.position + direction * Time.fixedDeltaTime/speedInverse);
+		bot.MovePosition(bot.position + direction.normalized * Time.fixedDeltaTime*speed);
 	}
 
 	Vector2 getAStarDir(){
 		
 		Vector2 playerDir = player.transform.position - bot.transform.position;
+		Vector2 avoidanceDir = new Vector2(0, 0);
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(bot.transform.position, playerDir.magnitude);
 		float xSum = 0.0f;
 		float ySum = 0.0f;
+		float wA = -1.0f;
+		float wP = 3.0f;
 		for(int i=0; i < colliders.Length; i++){
 			Rigidbody2D thing = colliders[i].attachedRigidbody;
-			if(thing.tag != "Player" && thing.tag != "Bullet"){
-				xSum += thing.transform.position.x - bot.transform.position.x;
-				ySum += thing.transform.position.y - bot.transform.position.y;
+			if(thing != null && thing.tag != "Player" && thing.tag != "Bullet"){
+				//xSum += thing.transform.position.x - bot.transform.position.x;
+				//ySum += thing.transform.position.y - bot.transform.position.y;
+				avoidanceDir += thing.position - bot.position;
 			}
 		}
-		Vector2 avoidanceDir = new Vector2(xSum, ySum);
-		Vector2 direction = (-avoidanceDir + 3*playerDir);
-		Debug.Log(direction);
+		if(avoidanceDir.magnitude < 1.0f){
+			avoidanceDir = avoidanceDir * playerDir.magnitude*2;
+			wA = -3.0f;
+			wP = 1.0f;
+		}
+		Vector2 direction = (wA*avoidanceDir + wP*playerDir);
 		return direction;
 	}
 }

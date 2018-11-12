@@ -8,7 +8,7 @@ public class PlayerBehavior : MonoBehaviour {
 	private bool isDead = false;
 	private float hitPoints;	
 
-	public float thrust = 10.0f;
+	public float thrust = 30.0f;
 
 	void Start(){
 		player = GetComponent<Rigidbody2D>();
@@ -34,10 +34,9 @@ public class PlayerBehavior : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col){
 		if(col.gameObject.tag == "Melee"){
 			Destroy(col.gameObject);
-			hitPoints -= 25.0f;
+			hitPoints -= 5.0f;
 		}
 	}
-
 
 	void movePlayer(Rigidbody2D player){
 		

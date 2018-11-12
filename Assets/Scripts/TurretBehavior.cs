@@ -19,7 +19,7 @@ public class TurretBehavior : MonoBehaviour {
 	void Update(){
 		turret.transform.eulerAngles = new Vector3(0, 0, getCursorDir());
 		if(Input.GetMouseButtonDown(0)){
-			Instantiate(bulletPrefab, turret.transform.position + turret.transform.up*0.75f, turret.transform.rotation);
+			Instantiate(bulletPrefab, turret.transform.position + turret.transform.up*1.5f, turret.transform.rotation);
 		}
 	}
 
