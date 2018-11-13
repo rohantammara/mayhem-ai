@@ -52,7 +52,7 @@ public class MeleeBehavior : MonoBehaviour {
 		float xSum = 0.0f;
 		float ySum = 0.0f;
 		float wA = -1.0f;
-		float wP = 3.0f;
+		float wP = 2.0f;
 		for(int i=0; i < colliders.Length; i++){
 			Rigidbody2D thing = colliders[i].attachedRigidbody;
 			if(thing != null && thing.tag != "Player" && thing.tag != "Bullet"){
@@ -61,12 +61,13 @@ public class MeleeBehavior : MonoBehaviour {
 				avoidanceDir += thing.position - bot.position;
 			}
 		}
-		if(avoidanceDir.magnitude < 1.0f){
-			avoidanceDir = avoidanceDir * playerDir.magnitude*2;
-			wA = -3.0f;
-			wP = 1.0f;
+		/*
+		if(playerDir.magnitude <= 1.0f){
+			wA = 0.0f;
+			wP = 2.0f;
 		}
-		Vector2 direction = (wA*avoidanceDir + wP*playerDir);
+		*/
+		Vector2 direction = (wA*avoidanceDir.normalized + wP*playerDir.normalized);
 		return direction;
 	}
 }
