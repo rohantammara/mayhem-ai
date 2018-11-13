@@ -22,6 +22,9 @@ namespace UnityEngine.Tilemaps
 
         public override void GetTileData(Vector3Int location, ITilemap tileMap, ref TileData tileData)
         {
+            //custom code here
+            base.GetTileData(position: location, tilemap: tileMap, tileData: ref tileData);
+            //fixes tilemap colliders
             tileData.transform = Matrix4x4.identity;
             tileData.color = Color.white;
             if (m_AnimatedSprites != null && m_AnimatedSprites.Length > 0)
