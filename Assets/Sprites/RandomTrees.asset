@@ -34,15 +34,10 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 1
   m_Sprites:
-  - {fileID: 21300000, guid: d3765169381f2f44da78784dcea12f6c, type: 3}
-  - {fileID: 21300000, guid: 2d98d80051928e049a1176581eb88306, type: 3}
-  - {fileID: 21300000, guid: b6fca99c6b12aed4dbdf53c21ae1e459, type: 3}
-  - {fileID: 21300000, guid: b9cdfa9e227db304a84847226a2715af, type: 3}
-  - {fileID: 21300000, guid: 257066727f30d474085c0cac6fba75df, type: 3}
-  - {fileID: 21300000, guid: 466b748fb81e74f448179715666232bc, type: 3}
-  - {fileID: 21300000, guid: b2484e276dc6cb34c8aa73c851f2b8c9, type: 3}
-  - {fileID: 21300000, guid: 3924fcf0c58fc9f4aa9161b9c0a8f4a4, type: 3}
-  - {fileID: 21300000, guid: 45a72cbca28b1cd4f81fe1b146516d43, type: 3}
-  - {fileID: 21300000, guid: 2cd25650694681d4fb981a1080ece1dd, type: 3}
-  - {fileID: 21300000, guid: 4f0e477f5e7b34a498f6db3e1479b9b9, type: 3}
-  - {fileID: 21300000, guid: 7a97c7bda3f0b714e9b1de726ff33fa4, type: 3}
+  - {fileID: 21300000, guid: 643c2eca2c61c7b4cb104c1d4f79f2c8, type: 3}
+  - {fileID: 21300000, guid: d1c86b16d94fb5044ba03f5c97fc3894, type: 3}
+  - {fileID: 21300000, guid: 4d403af51c06564448be4bfc73cf14db, type: 3}
+  - {fileID: 21300000, guid: 416e2b95a6c6b9141bd94dcc8de5c547, type: 3}
+  - {fileID: 21300000, guid: 9bacfc081bc398b438200de0174af6c7, type: 3}
+  - {fileID: 21300000, guid: f466b6b8029d7c6449d2504a5d680101, type: 3}
+  - {fileID: 21300000, guid: 078f496060309ee4b9cce41015200a35, type: 3}
